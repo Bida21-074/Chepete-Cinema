@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Trending </title>
+        <meta charset="utf-8">
+        <style>
+*{
+    margin: 0;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    font-size: large;
+}
+
+.header-container{
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 50px;
+    height: 100%;
+    color: white;
+}
+
+.logo-container{
+    flex: 1;
+}
+
+.menu-container{
+    flex: 6; 
+}
+.menu-list{
+    display: flex;
+    list-style: none;
+}
+
+ul li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: right;
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header ul li::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+li{
+    list-style: none;
+}
+
+.signup-container{
+    flex: 2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle{
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.toggle-icon{
+    color: goldenrod;
+}
+
+.toggle-ball{ 
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+ 
+nav{
+    width: 70px; 
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.left-menu-icon{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.container{
+    min-height: 100vh;
+    max-width: 100%;
+    color: white;
+}
+
+.content-container{
+    margin-top: 80px;
+    
+}
+
+.featured-content{
+    margin-left: 70px;
+    margin-top: 80px;
+    padding: 50px;
+    height: 50vh;
+    
+}
+
+.featured-title{
+    width: 100%;
+    height: 300px;
+    margin-top: 150px;
+}
+
+h1{
+    margin-top: 250px;
+}
+
+.featured-desc{
+    width: 500px;
+    color: white;
+    margin: 30px;
+}
+
+.featured-button{
+    background-color: #4dbf00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.movie-list-container{
+    padding: 20px;
+    margin-left: 55px;
+}
+
+.movie-list-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-list{
+    display: flex;
+    align-items: center;
+    height: 300px;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+ 
+.movie-list-item{
+    margin-right: 30px;
+    margin-top:  350px;
+    position: relative;
+}
+
+.movie-list-item:hover,.movie-list-item-img{
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 1;
+}
+
+.movie-list-item:hover .movie-list-item-title,
+.movie-list-item:hover .movie-list-item-desc,
+.movie-list-item:hover .movie-list-item-button{
+    opacity: 1;
+}
+
+.movie-list-item-img{
+    transition: all 1s ease-in-out;
+    width: 270px;
+    height: 800px;
+    margin-top: 20px;
+    padding-left: 30px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.movie-list-item-title{
+    background-color: #333;
+    padding:  0 10px;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    align-items: center;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.movie-list-item-desc{
+    background-color: #333;
+    padding:  10px;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    margin-right: 30px;
+    width: 230px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.movie-list-item-button{
+    padding: 10px;
+    background-color: #4dbf00;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.arrow{
+    font-size: 120px;
+    position: absolute;
+    top: 250px;
+    right: 0;
+    color: white;
+    opacity: 0.5;
+    align-items: center;
+    cursor: pointer;
+}
+        </style>
+        <script src="https://kit.fontawesome.com/0300438701.js" crossorigin="anonymous"></script>
+    </head>
+        <body background="cinema.jpg">
+            <header>
+                <header class="header-container">
+                <header class="logo-container"><img src="Logo.png" width="200" height="100" title="Logo" alt="Logo"/></header>
+                <header class="menu-container">
+                  <ul class="menu-list">
+                      <li><a href="Now Showing.html"> Now Showing </a></li>
+                      <li><a href="Online Deals.html"> Movie Deals</a></li>
+                      <li><a href="Trending.html"> Trending</a></li>
+                      <li><a href="Popular.html"> Popular</a></li>
+                      <li><a href="Upcoming.html"> Upcoming</a></li>
+                    </ul>
+                </header>
+                <header class="signup-container">
+                    <ul class="Sign-up">
+                    <li><a href="Sign-up form.html">Sign Up</a></li>
+                    </ul>
+                    <div class="toggle">
+                      <i class="moon.jpg toggle-icon"></i>
+                      <i class="sun.png toggle-icon"></i>
+                      <div class="toggle-ball"></div>
+                    </div>
+                </header>
+            </header>
+           </header>
+             <nav>
+              <i class="left-menu-icon fa-solid fa-magnifying-glass"></i>
+              <i class="left-menu-icon fa-solid fa-house"></i>
+              <i class="left-menu-icon fa-solid fa-user-group"></i>
+              <i class="left-menu-icon fa-solid fa-bookmark"></i>
+              <i class="left-menu-icon fa-solid fa-tv"></i>
+             </nav>
+             <div class="container" >
+                <div class="content-container">
+                  <div class="featured-content">
+                 <img class="featured-title" src="The tomorrow War logo.jpg" width="200" height="150" title="Logo" alt="Logo"/>
+                 <p class="featured-desc">After a malicious data hack exposes the secrets of the perpetually American town of Salem, chaos descends and four girls must fight to survive, while coping with the hack themselves.
+                 </p>
+                 <button class="featured-button">Book</button>
+               </div>
+                <div class="movie-list-container">
+                 <h1 class="movie-list-title">ACTION</h1>
+                 <div class="movie-list-wrapper">
+                   <div class="movie-list">
+                     <div class="movie-list-item">
+                       <img class="movie-list-item-img" src="Black Widow-Action.jpg" alt="Black Widow">
+                       <span class="movie-list-item-title">Black Widow</span>
+                       <p class="movie-list-item-desc">Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.</p>
+                         <button class="movie-list-item-button">Book</button>
+                     </div>
+                     <div class="movie-list-item">
+                       <img class="movie-list-item-img" src="Beyond the law-Action.jpg" alt="Beyond The Law">
+                       <span class="movie-list-item-title">Beyond the law</span>
+                       <p class="movie-list-item-desc">A former mobster turned businessman and a police detective must contend with a dirty ex-cop looking to bring the killer of his son to justice</p>
+                         <button class="movie-list-item-button">Book</button>
+                     </div>
+                     <div class="movie-list-item">
+                       <img class="movie-list-item-img" src="Wrath of man-Action.jpg" alt="Wrath of Man">
+                       <span class="movie-list-item-title">Wrath of Man</span>
+                       <p class="movie-list-item-desc">Mysterious and wild-eyed, a new security guard for a cash truck surprises his co-workers when he unleashes precision skills during a heist. The crew is left wondering who he is and where he came from. Soon, the marksman's ultimate motive becomes clear as he takes dramatic and irrevocable steps to settle a score.</p>
+                         <button class="movie-list-item-button">Book</button>
+                     </div>
+                     <div class="movie-list-item">
+                       <img class="movie-list-item-img" src="Black crab-Action.jpg" alt="Black Crab">
+                       <span class="movie-list-item-title">Black Crab</span>
+                       <p class="movie-list-item-desc">During a long, harsh winter, six soldiers embark on a covert mission across a frozen archipelago, risking their lives to transport a mysterious package that could end the war.</p>
+                         <button class="movie-list-item-button">Book</button>
+                     </div>
+                         <div class="movie-list-item">
+                           <img class="movie-list-item-img" src="White house down-Action.jpg" alt="White House Down">
+                           <span class="movie-list-item-title">White House Down</span>
+                           <p class="movie-list-item-desc">In the film, a divorced US Capitol Police officer named John Cale attempts to rescue both his daughter Emily and the President of the United States James Sawyer when a massively destructive terrorist assault by a paramilitary group occurs in the White House.</p>
+                             <button class="movie-list-item-button">Book</button>
+                       </div>
+                       <div class="movie-list-item">
+                         <img class="movie-list-item-img" src="Without Remorse-Action.jpg" alt="Without Remorse">
+                         <span class="movie-list-item-title">Without Remorse</span>
+                         <p class="movie-list-item-desc">An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife in Tom Clancy's Without Remorse, the explosive origin story of action hero John Clark - one of the most popular characters in author Tom Clancy's Jack Ryan universe.</p>
+                           <button class="movie-list-item-button">Book</button>
+                     </div>
+                       <div class="movie-list-item">
+                         <img class="movie-list-item-img" src="Black Panther- Action.jpg" alt="Black Panther">
+                         <span class="movie-list-item-title">Black Panther</span>
+                         <p class="movie-list-item-desc">After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk.</p>
+                           <button class="movie-list-item-button">Book</button>
+                     </div>
+                       <div class="movie-list-item">
+                         <img class="movie-list-item-img" src="No time to die-Action.jpg" alt="No time to die">
+                         <span class="movie-list-item-title">No time to die</span>
+                         <p class="movie-list-item-desc">In No Time To Die, Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help.</p>
+                           <button class="movie-list-item-button">Book</button>
+                     </div>
+                     </div>
+                     <i class="arrow fa-solid fa-chevron-right"></i>
+                   </div>
+                </div>
+              <div class="featured-content">
+             <img class="featured-title" src="Everything_logo.jpg" width="200" height="150" title="Logo" alt="Logo"/>
+             <p class="featured-desc">“Everything, Everything” tells the unlikely love story of Maddy, a smart, curious and imaginative 18-year-old who due to an illness cannot leave the protection of the hermetically sealed environment within her house, and Olly, the boy next door who won't let that stop them.
+             </p>
+             <button class="featured-button">Book</button>
+           </div>
+            <div class="movie-list-container">
+             <h1 class="movie-list-title">ROMANCE</h1>
+             <div class="movie-list-wrapper">
+               <div class="movie-list">
+                 <div class="movie-list-item">
+                   <img class="movie-list-item-img" src="Midnight Sun-Romance.jpg" alt="Midnight Sun">
+                   <span class="movie-list-item-title">Midnight Sun</span>
+                   <p class="movie-list-item-desc">Midnight Sun centers on Katie, a 17-year-old sheltered since childhood and confined to her house during the day by a rare disease that makes even the smallest amount of sunlight deadly. Fate intervenes when she meets Charlie and they embark on a summer romance.</p>
+                     <button class="movie-list-item-button">Book</button>
+                 </div>
+                 <div class="movie-list-item">
+                   <img class="movie-list-item-img" src="Five Feet Apart- Romance.jpg" alt="Five Feet Apart">
+                   <span class="movie-list-item-title">Five Feet Apart</span>
+                   <p class="movie-list-item-desc">A pair of teenagers with cystic fibrosis meet in a hospital and fall in love, though their disease means they must avoid close physical contact.</p>
+                     <button class="movie-list-item-button">Book</button>
+                 </div>
+                 <div class="movie-list-item">
+                   <img class="movie-list-item-img" src="Call me by your name-Romance.jpg" alt="Call Me By Your Name">
+                   <span class="movie-list-item-title">Call Me By Your Name</span>
+                   <p class="movie-list-item-desc">Set in 1983 in northern Italy, Call Me by Your Name chronicles the romantic relationship between a 17-year-old, Elio Perlman (Timothée Chalamet), and Oliver (Armie Hammer), a 24-year-old graduate-student assistant to Elio's father Samuel (Michael Stuhlbarg), an archaeology professor.</p>
+                     <button class="movie-list-item-button">Book</button>
+                 </div>
+                 <div class="movie-list-item">
+                   <img class="movie-list-item-img" src="10_Things_I_Hate_About_You-Romance.jpg" alt="10 Things I hate About You">
+                   <span class="movie-list-item-title">10 Things I hate About You</span>
+                   <p class="movie-list-item-desc">A family rule forbids her from dating until her unpopular, rebellious, boy-hating older sister Kat gets a suitor of her own. In an attempt to win Bianca, a potential boyfriend desperately attempts to set Kat up with Patrick Verona, another rebel who may just be able to win Kat's heart.</p>
+                     <button class="movie-list-item-button">Book</button>
+                 </div>
+                     <div class="movie-list-item">
+                       <img class="movie-list-item-img" src="The notebook-Romance.jpg" alt="The Notebook">
+                       <span class="movie-list-item-title">The Notebook</span>
+                       <p class="movie-list-item-desc">Duke reads the story of Allie and Noah, two lovers who were separated by fate, to Ms Hamilton, an old woman who suffers from dementia, on a daily basis out of his notebook.</p>
+                         <button class="movie-list-item-button">Book</button>
+                   </div>
+                   <div class="movie-list-item">
+                     <img class="movie-list-item-img" src="Love, Rosie-Romance.jpg" alt="Love, Rosie">
+                     <span class="movie-list-item-title">Love, Rosie</span>
+                     <p class="movie-list-item-desc">Rosie and Alex are best friends until Alex's family moves to America. They gamble everything to keep their love and friendship alive over the years and miles.</p>
+                       <button class="movie-list-item-button">Book</button>
+                 </div>
+                   <div class="movie-list-item">
+                     <img class="movie-list-item-img" src="Every_Day-Romance.png" alt="Everyday">
+                     <span class="movie-list-item-title">Everyday</span>
+                     <p class="movie-list-item-desc">Based on David Levithan's acclaimed New York Times bestseller, Every Day tells the story of Rhiannon (Angourie Rice), a 16-year old girl who falls in love with a mysterious soul named "A" who inhabits a different body every day.</p>
+                       <button class="movie-list-item-button">Book</button>
+                 </div>
+                   <div class="movie-list-item">
+                     <img class="movie-list-item-img" src="Adore-Romance.jpg" alt="Adore">
+                     <span class="movie-list-item-title">Adore</span>
+                     <p class="movie-list-item-desc">Two lifelong best friends (Robin Wright, Naomi Watts) each begin a steamy affair with the other's son, but trouble begins to brew when one of the two young men desires a lover his own age.</p>
+                       <button class="movie-list-item-button">Book</button>
+                 </div>
+                 </div>
+                 <i class="arrow fa-solid fa-chevron-right"></i>
+               </div>
+            </div>
+            <div class="featured-content">
+                <img class="featured-title" src="GERALDS-GAME-logo.jpg" width="200" height="150" title="Logo" alt="Logo"/>
+                <p class="featured-desc">A couple tries to spice up their marriage in a remote lake house. After the husband dies unexpectedly, the wife is left handcuffed to their bed frame and must fight to survive and break free.
+                </p>
+                <button class="featured-button">Book</button>
+              </div>
+               <div class="movie-list-container">
+                <h1 class="movie-list-title">HORROR</h1>
+                <div class="movie-list-wrapper">
+                  <div class="movie-list">
+                    <div class="movie-list-item">
+                      <img class="movie-list-item-img" src="The Nun- horror.jpg" alt="The Nun">
+                      <span class="movie-list-item-title">The Nun</span>
+                      <p class="movie-list-item-desc">When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together, they uncover the order's unholy secret.</p>
+                        <button class="movie-list-item-button">Book</button>
+                    </div>
+                    <div class="movie-list-item">
+                      <img class="movie-list-item-img" src="Us-horror movie.png" alt="US">
+                      <span class="movie-list-item-title">US</span>
+                      <p class="movie-list-item-desc">A family's serene beach vacation turns to chaos when their doppelgängers appear and begin to terrorize them.</p>
+                        <button class="movie-list-item-button">Book</button>
+                    </div>
+                    <div class="movie-list-item">
+                      <img class="movie-list-item-img" src="OLD-horror movie.jpg" alt="OLD">
+                      <span class="movie-list-item-title">OLD</span>
+                      <p class="movie-list-item-desc">A tropical holiday turns into a horrific nightmare when a family visits a secluded beach that somehow causes them to age rapidly -- reducing their entire lives into a single day.</p>
+                        <button class="movie-list-item-button">Book</button>
+                    </div>
+                    <div class="movie-list-item">
+                      <img class="movie-list-item-img" src="Lights Out-Horror.jpg" alt="Lights Out">
+                      <span class="movie-list-item-title">Lights Out</span>
+                      <p class="movie-list-item-desc">In the film, a young woman must confront her childhood fears to protect her brother from a vengeful supernatural entity holding a mysterious attachment to their mother. </p>
+                        <button class="movie-list-item-button">Book</button>
+                    </div>
+                        <div class="movie-list-item">
+                          <img class="movie-list-item-img" src="A quiet place-Horror.jpg" alt="A quiet place">
+                          <span class="movie-list-item-title">A Quiet Place</span>
+                          <p class="movie-list-item-desc">A family must live in silence to avoid mysterious creatures that hunt by sound. Knowing that even the slightest whisper or footstep can bring death, Evelyn and Lee are determined to find a way to protect their children while desperately searching for a way to fight back.</p>
+                            <button class="movie-list-item-button">Book</button>
+                      </div>
+                      <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="Fantasy Island-Horror.jpg" alt="Fantasy Island">
+                        <span class="movie-list-item-title">Fantasy Island</span>
+                        <p class="movie-list-item-desc">Roarke makes the secret dreams of his guests come true at a luxurious tropical resort. But when the fantasies turn into nightmares, the visitors must soon solve the island's mystery in order to escape with their lives.</p>
+                          <button class="movie-list-item-button">Book</button>
+                    </div>
+                      <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="Doctor Sleep- Horror.jpg" alt="Doctor Sleep">
+                        <span class="movie-list-item-title">Doctor Sleep</span>
+                        <p class="movie-list-item-desc">A now-adult Dan Torrance must protect a young girl with similar powers from a cult known as The True Knot, who prey on children with powers to remain immortal. On highways across America, a tribe of people called The True Knot travel in search of sustenance.</p>
+                          <button class="movie-list-item-button">Book</button>
+                    </div>
+                      <div class="movie-list-item">
+                        <img class="movie-list-item-img" src="The Silence-Horror.jpg" alt="The Silence">
+                        <span class="movie-list-item-title">The Silence</span>
+                        <p class="movie-list-item-desc">The film depicts a world under attack by creatures who hunt by sound. Shipka plays a late-deafened teenager who seeks shelter with her family, and a cult tries to take advantage of her fertility. </p>
+                          <button class="movie-list-item-button">Book</button>
+                    </div>
+                    </div>
+                    <i class="arrow fa-solid fa-chevron-right"></i>
+                  </div>
+               </div>
+         </div>
+     </div>
+     <script src="cinema.js"></script>
+   </body>
+</html>

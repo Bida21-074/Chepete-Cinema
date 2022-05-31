@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Popular </title>
+        <meta charset="utf-8">
+        <style>
+*{
+    margin: 0;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    font-size: large;
+}
+
+.header-container{
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 50px;
+    height: 100%;
+    color: white;
+}
+
+.logo-container{
+    flex: 1;
+}
+
+.menu-container{
+    flex: 6; 
+}
+.menu-list{
+    display: flex;
+    list-style: none;
+}
+
+ul li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: right;
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header ul li::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+li{
+    list-style: none;
+}
+
+.signup-container{
+    flex: 2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle{
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.toggle-icon{
+    color: goldenrod;
+}
+
+.toggle-ball{ 
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+ 
+nav{
+    width: 70px; 
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.left-menu-icon{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+        </style>
+        <script src="https://kit.fontawesome.com/0300438701.js" crossorigin="anonymous"></script>
+    </head>
+        <body background="cinema.jpg">
+            <header>
+                <header class="header-container">
+                <header class="logo-container"><img src="Logo.png" width="200" height="100" title="Logo" alt="Logo"/></header>
+                <header class="menu-container">
+                  <ul class="menu-list">
+                      <li><a href="Now Showing.html"> Now Showing </a></li>
+                      <li><a href="Online Deals.html"> Movie Deals</a></li>
+                      <li><a href="Trending.html"> Trending</a></li>
+                      <li><a href="Popular.html"> Popular</a></li>
+                      <li><a href="Upcoming.html"> Upcoming</a></li>
+                    </ul>
+                </header>
+                <header class="signup-container">
+                    <ul class="Sign-up">
+                    <li><a href="Sign-up form.html">Sign Up</a></li>
+                    </ul>
+                    <div class="toggle">
+                      <i class="moon.jpg toggle-icon"></i>
+                      <i class="sun.png toggle-icon"></i>
+                      <div class="toggle-ball"></div>
+                    </div>
+                </header>
+            </header>
+           </header>
+             <nav>
+              <i class="left-menu-icon fa-solid fa-magnifying-glass"></i>
+              <i class="left-menu-icon fa-solid fa-house"></i>
+              <i class="left-menu-icon fa-solid fa-user-group"></i>
+              <i class="left-menu-icon fa-solid fa-bookmark"></i>
+              <i class="left-menu-icon fa-solid fa-tv"></i>
+             
+             </nav>
+        </body>
+</html>

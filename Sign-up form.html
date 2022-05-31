@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Sign up Form</title>
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-position: center;
+}
+.sign-up-form{
+    width: 350px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto;
+    text-align: center;
+}
+.sign-up-form h1{ 
+    color: #1c8adb;
+    margin-bottom: 30px;
+}
+.input-box{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 95%;
+    border: 1px solid #999;
+    outline: none;
+}
+button{
+    color: #fff;
+    width: 100%; 
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.sign-btn{
+    background-color: #1c8adb;
+}
+
+.google-btn{
+    background-color: #21afde;
+}
+a{
+    text-decoration: none;
+}
+hr{
+    margin-top: 20px;
+    width: 80%; 
+}
+.or{
+    background: #fff;
+    width: 30px;
+    margin: -19px auto 10px;
+}
+img{
+    width: 70px;
+    margin-top: -50px;
+}
+    </style>
+</head>
+<body background="cinema.jpg">  
+<div class="sign-up-form">
+    <img src="User icon.png">
+    <h1>Sign Up Now</h1>
+    <form>
+        <input type="email" class="input-box" placeholder="Your Email">
+        <input type="password" class="input-box" placeholder="Your Password">
+        <p><span><input type="checkbox"></span>I agree to the terms of services</p>
+        <button type="button" class="sign-btn">Sign up</button>
+        <hr>    
+        <p class="or">OR</p>
+        <button type="button" class="google-btn">Login with Google</button>
+        <p>Do you have an account?<a href="a">Sign In</a></p>
+    </form>
+</div>
+</body>
+</html>
